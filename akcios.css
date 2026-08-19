@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255,193,72,.95) 0%, rgba(255,126,13,.72) 25%, transparent 48%),
+    radial-gradient(circle at 82% 18%, rgba(245,27,61,.90) 0%, rgba(218,21,86,.72) 25%, transparent 52%),
+    radial-gradient(circle at 76% 88%, rgba(138,31,61,.92) 0%, rgba(218,21,86,.70) 28%, transparent 58%),
+    linear-gradient(135deg, #ffb52e 0%, #fd7e0d 20%, #f53b15 43%, #f51b3d 62%, #dc1556 78%, #8a1f3d 100%);
+  background-attachment: fixed;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery {
+  width: min(1500px, 100%);
+  min-height: calc(100vh - 56px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  min-height: 650px;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.09);
+  box-shadow: 0 16px 45px rgba(90,0,30,.22);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  color: rgba(255,255,255,.92);
+  text-align: center;
+}
+
+.placeholder .icon {
+  font-size: 42px;
+}
+
+.placeholder span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.placeholder small {
+  opacity: .72;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item,
+  .placeholder {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 14px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .gallery-item,
+  .placeholder {
+    min-height: 360px;
+  }
+}
